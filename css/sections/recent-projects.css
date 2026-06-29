@@ -1,0 +1,152 @@
+/* ---- Recent projects (interactive index) ----
+   Clickable project list on one side; the image on the other swaps to the
+   chosen project (driven by js/modules/recent-projects.js). Themed via tokens, so it
+   follows light/dark automatically. Logical properties keep it correct in RTL.
+   Breakpoints live in responsive.css (cross-cutting), per the section layout. */
+
+.recent { padding: 50px 0 84px; }
+
+.recent-head { margin-bottom: 44px; }
+.recent-head .eyebrow { display: block; margin-bottom: 16px; }
+.recent-head h2 {
+  font-size: clamp(34px, 5vw, 60px);
+  font-weight: 500;
+}
+
+.recent-grid {
+  display: grid;
+  /* image column a touch larger than the project list */
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ---- The clickable list ---- */
+.recent-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.recent-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  padding: 28px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.35s, opacity 0.35s;
+}
+
+.recent-item .num {
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--faint);
+  transition: color 0.35s;
+}
+
+.recent-item .r-title {
+  font-size: clamp(24px, 2.8vw, 40px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--muted);
+  transition: color 0.35s;
+}
+
+html[lang="ar"] .recent-item .r-title {
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+}
+
+.recent-item .r-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  transition: color 0.35s;
+}
+
+html[lang="ar"] .recent-item .r-cat {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+}
+
+/* Arrow reveals on the active/hovered row; flipped for RTL via scaleX */
+.recent-item .r-arrow {
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+html[dir="rtl"] .recent-item .r-arrow { transform: scaleX(-1); }
+
+/* Active row */
+.recent-item.is-active { color: var(--text); }
+.recent-item.is-active .num     { color: var(--accent); }
+.recent-item.is-active .r-title { color: var(--text); }
+.recent-item.is-active .r-cat   { color: var(--accent); }
+.recent-item.is-active .r-arrow { opacity: 1; }
+
+/* Hover (pointer devices only) previews the active treatment */
+@media (hover: hover) {
+  .recent-item:hover .r-title { color: var(--text); }
+  .recent-item:hover .r-cat   { color: var(--accent); }
+  .recent-item:hover .r-arrow { opacity: 1; }
+}
+
+.recent-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* ---- The swapping image ---- */
+.recent-media {
+  position: relative;
+  aspect-ratio: 2 / 1;          /* one fixed ratio for every project → no layout
+                                   jump when switching; matches the wide ~2:1
+                                   photos so they fill it untouched */
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.recent-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* JS adds this during a swap to crossfade the new photo in */
+.recent-media.is-swapping .recent-img { opacity: 0; }
+
+/* ---- View-all link ---- */
+.recent-all {
+  display: inline-block;
+  margin-top: 40px;
+  padding-bottom: 5px;
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text);
+  border-bottom: 1px solid var(--accent);
+  transition: color 0.3s;
+}
+html[lang="ar"] .recent-all { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
+.recent-all:hover { color: var(--accent); }

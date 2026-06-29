@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Launching soon — ARCTEX Design Solutions</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#201d1c">
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Restore saved theme + language before paint to avoid flashes (FOUC). Must stay inline. -->
+  <script>
+    (function () {
+      /* 1) saved choice wins; 2) else follow the OS light/dark setting; 3) else dark */
+      var theme = localStorage.getItem('arctex-theme');
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+      var lang = localStorage.getItem('arctex-lang');
+      if (lang === 'ar' || lang === 'en') {
+        document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Expanded:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cairo:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css?v=20260614d">
+  <link rel="stylesheet" href="css/base.css?v=20260613f">
+  <link rel="stylesheet" href="css/sections.css?v=20260625d">
+  <style>
+    .mx {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 22px;
+      padding: 40px 24px;
+    }
+    .mx img.brand { width: 190px; max-width: 60vw; opacity: 0.92; margin-bottom: 4px; }
+    /* Dark-theme wordmark hidden by default; the logo-swap script reveals the
+       right one for the active theme (this page has no nav to inherit from). */
+    .mx .logo-dark { display: none; }
+    .mx .glyph {
+      width: clamp(64px, 14vw, 104px);
+      height: clamp(64px, 14vw, 104px);
+      color: var(--accent);
+      margin: 4px 0 2px;
+    }
+    .mx .glyph svg { width: 100%; height: 100%; display: block; }
+    .mx h1 {
+      font-family: 'Saira Expanded', sans-serif;
+      font-size: clamp(22px, 4.4vw, 32px);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .mx p { color: var(--muted); font-weight: 300; max-width: 460px; line-height: 1.7; }
+    .mx .contact {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .mx .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .mx .contact a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="mx">
+    <img class="brand logo-light" src="images/logo-white.png" alt="ARCTEX Design Solutions">
+    <img class="brand logo-dark" src="images/logo-dark.png" alt="ARCTEX Design Solutions">
+
+    <div class="glyph" aria-hidden="true">
+      <!-- Editorial line-art drafting compass, currentColor = accent -->
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <!-- arc being drawn -->
+        <path d="M16 50a18 18 0 0 1 32 0" stroke-dasharray="1.5 5" opacity="0.5"/>
+        <!-- pivot -->
+        <circle cx="32" cy="11" r="3.2"/>
+        <!-- legs -->
+        <path d="M30.4 13.6 16 50"/>
+        <path d="M33.6 13.6 48 50"/>
+        <!-- feet -->
+        <circle cx="16" cy="50" r="1.4" fill="currentColor" stroke="none"/>
+        <circle cx="48" cy="50" r="1.4" fill="currentColor" stroke="none"/>
+      </svg>
+    </div>
+
+    <h1><span class="lang-en">Launching soon.</span><span class="lang-ar">نُطلق قريباً.</span></h1>
+    <p><span class="lang-en">We're putting the finishing touches on our new site. In the meantime, we'd love to hear from you.</span><span class="lang-ar">نضع اللمسات الأخيرة على موقعنا الجديد، ويسعدنا تواصلكم في هذه الأثناء.</span></p>
+
+    <p class="contact"><span class="lang-en">Need us in the meantime? Call </span><span class="lang-ar">بحاجة إلينا الآن؟ اتصلوا على </span><a href="tel:+96594707575" dir="ltr">+96594707575</a></p>
+  </main>
+
+  <script>
+    /* Show the correct logo for the active theme — standalone page, no nav wrapper. */
+    (function () {
+      var dark = document.documentElement.getAttribute('data-theme') !== 'light';
+      document.querySelector('.logo-light').style.display = dark ? 'block' : 'none';
+      document.querySelector('.logo-dark').style.display = dark ? 'none' : 'block';
+    })();
+  </script>
+</body>
+</html>

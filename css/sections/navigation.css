@@ -1,0 +1,147 @@
+/* ---- Nav ---- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  color: var(--on-dark);
+  transition: 0.4s;
+}
+
+.nav.scrolled {
+  padding: 16px 48px;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--line);
+  color: var(--text);
+}
+
+.brand {
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.brand img {
+  display: block;
+  height: 22px;
+  width: auto;
+}
+
+/* Logo swap: white wordmark on dark, dark wordmark on light */
+.brand .logo-light { display: block; }
+.brand .logo-dark  { display: none; }
+:root[data-theme="light"] .nav.scrolled .brand .logo-light { display: none; }
+:root[data-theme="light"] .nav.scrolled .brand .logo-dark  { display: block; }
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-links a { opacity: 0.85; }
+.nav-links a:hover { opacity: 1; color: var(--accent); }
+
+/* Current page in the nav */
+.nav-links a.active {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Theme toggle button + its two icons */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.theme-toggle svg { width: 17px; height: 17px; }
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun  { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+
+/* Language toggle (shows the language you'd switch TO) */
+.lang-toggle {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.lang-toggle:hover {
+  opacity: 1;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.lang-toggle .lang-ar { font-family: 'Cairo', sans-serif; font-size: 16px; }
+
+/* Hamburger button — only shown on phone/tablet (see responsive block) */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.nav-burger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  transition: 0.3s;
+}
+
+.nav-burger:hover {
+  opacity: 1;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+

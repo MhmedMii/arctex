@@ -1,0 +1,44 @@
+/* =============================================================
+   ARCTEX — sections.css (index / entry point)
+
+   This file holds NO rules of its own. Every section's styles
+   live in their own module under css/sections/, and this index
+   just imports them in cascade order — the CSS twin of main.js.
+
+   To change one section, edit only its file in css/sections/.
+   Order matters (CSS cascade), so keep imports top-to-bottom in
+   the same order the sections appear on the page.
+
+   Modules:
+     navigation         Top navigation bar, logo swap, theme + lang toggles, burger
+     mobile-menu        Mobile slide-in navigation drawer
+     home-hero          Home hero (brand wordmark wash + actions)
+     inner-page-header  Compact banner for inner pages
+     contact            Contact details block (icon + text rows)
+     contact-form       Client enquiry form (+ select chevron, honeypot)
+     home-statement     Editorial statement line
+     projects           Showcase / project cards (wide + duo image pair)
+     recent-projects    Interactive "Recent projects" index (home teaser)
+     services           Services grid
+     call-to-action     Call-to-action band
+     firm               Firm page: philosophy split, vision/mission, why-choose
+     footer             Site footer
+     responsive         Tablet & phone breakpoints (cross-cutting)
+     arabic-rtl         Arabic / RTL refinements (cross-cutting)
+   ============================================================= */
+
+@import "sections/navigation.css?v=20260614d";
+@import "sections/mobile-menu.css?v=20260613h";
+@import "sections/home-hero.css?v=20260614d";
+@import "sections/inner-page-header.css?v=20260625a";
+@import "sections/contact.css?v=20260613h";
+@import "sections/contact-form.css?v=20260613h";
+@import "sections/home-statement.css?v=20260613h";
+@import "sections/projects.css?v=20260614m";
+@import "sections/recent-projects.css?v=20260614j";
+@import "sections/services.css?v=20260613h";
+@import "sections/call-to-action.css?v=20260614d";
+@import "sections/firm.css?v=20260625b";
+@import "sections/footer.css?v=20260614a";
+@import "sections/responsive.css?v=20260614m";
+@import "sections/arabic-rtl.css?v=20260613h";

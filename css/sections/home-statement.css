@@ -1,0 +1,28 @@
+/* ---- Statement ---- */
+.statement {
+  padding: 150px 0 130px;
+  text-align: center;
+}
+
+.statement h2 {
+  max-width: 20ch;
+  margin: 30px auto 0;
+  font-size: clamp(32px, 4.6vw, 64px);
+  font-weight: 400;
+  line-height: 1.14;
+}
+
+.statement h2 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.prose {
+  max-width: 680px;
+  margin: 26px auto 0;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+}
+

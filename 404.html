@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — ARCTEX Design Solutions</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#201d1c">
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Restore saved theme + language before paint to avoid flashes (FOUC). Must stay inline. -->
+  <script>
+    (function () {
+      /* 1) saved choice wins; 2) else follow the OS light/dark setting; 3) else dark */
+      var theme = localStorage.getItem('arctex-theme');
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+      var lang = localStorage.getItem('arctex-lang');
+      if (lang === 'ar' || lang === 'en') {
+        document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Expanded:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cairo:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css?v=20260614d">
+  <link rel="stylesheet" href="css/base.css?v=20260613f">
+  <link rel="stylesheet" href="css/sections.css?v=20260625d">
+  <style>
+    .nf {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 22px;
+      padding: 40px 24px;
+    }
+    .nf img { width: 190px; max-width: 60vw; opacity: 0.92; margin-bottom: 8px; }
+    /* Dark-theme wordmark hidden by default; the logo-swap script reveals the
+       right one for the active theme (this page has no nav to inherit from). */
+    .nf .logo-dark { display: none; }
+    .nf .code {
+      font-family: 'Saira Expanded', sans-serif;
+      font-size: clamp(64px, 16vw, 132px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
+    .nf h1 {
+      font-family: 'Saira Expanded', sans-serif;
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 500;
+    }
+    .nf p { color: var(--muted); font-weight: 300; max-width: 440px; line-height: 1.7; }
+    .nf .btn { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <img class="logo-light" src="images/logo-white.png" alt="ARCTEX Design Solutions">
+    <img class="logo-dark" src="images/logo-dark.png" alt="ARCTEX Design Solutions">
+    <div class="code">404</div>
+    <h1><span class="lang-en">This page can't be found.</span><span class="lang-ar">لا يمكن العثور على هذه الصفحة.</span></h1>
+    <p><span class="lang-en">The page you're looking for may have moved or no longer exists. Let's get you back on track.</span><span class="lang-ar">قد تكون الصفحة التي تبحث عنها قد نُقلت أو لم تعد موجودة. لنعدك إلى المسار الصحيح.</span></p>
+    <a href="homepage.html" class="btn solid"><span class="lang-en">Back to home &rarr;</span><span class="lang-ar">العودة للرئيسية &larr;</span></a>
+  </main>
+
+  <script>
+    /* Show the correct logo for the active theme (base.css swaps via .logo-light/.logo-dark,
+       but this standalone page has no nav wrapper, so mirror that here). */
+    (function () {
+      function syncLogo() {
+        var dark = document.documentElement.getAttribute('data-theme') !== 'light';
+        document.querySelector('.logo-light').style.display = dark ? 'block' : 'none';
+        document.querySelector('.logo-dark').style.display = dark ? 'none' : 'block';
+      }
+      syncLogo();
+    })();
+  </script>
+</body>
+</html>

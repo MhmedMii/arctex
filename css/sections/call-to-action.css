@@ -1,0 +1,51 @@
+/* ---- CTA ---- */
+.cta {
+  position: relative;
+  height: 78vh;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: var(--on-dark);
+}
+
+.cta .bg {
+  position: absolute;
+  inset: 0;
+  background: url('../../images/proj-02.jpg') center / cover;
+  filter: grayscale(0.4);
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 12, 12, 0.62);
+}
+
+.cta-in {
+  position: relative;
+  z-index: 2;
+  padding: 0 32px;
+}
+
+.cta .eyebrow {
+  display: block;
+  margin-bottom: 24px;
+  color: var(--on-dark-accent);
+}
+
+.cta h2 {
+  margin-bottom: 30px;
+  font-size: clamp(38px, 6vw, 86px);
+  font-weight: 500;
+}
+
+/* CTA sits on a dark photo, so its button is always white */
+.cta .btn {
+  color: var(--on-dark);
+  border-color: var(--on-dark);
+}
+

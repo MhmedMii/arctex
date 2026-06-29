@@ -1,0 +1,53 @@
+/* =============================================================
+   ARCTEX — Design Tokens
+   Brand colours from the ARCTEX brand-identity PDF.
+   Two themes: dark (default) and light. All other stylesheets
+   reference these custom properties — never hard-coded hex.
+   ============================================================= */
+
+/* On-dark constants — for the sections that stay dark in BOTH themes
+   (hero, page-hero, cta, nav). These intentionally do NOT switch with the
+   theme: if they used the theme tokens, their text would vanish in light
+   mode. Named here purely for readability so the literals aren't scattered. */
+:root {
+  --on-dark:        #ffffff;   /* text/icons on a permanently dark surface */
+  --on-dark-accent: #d2c7b5;   /* gold eyebrow/accent on dark */
+  --on-dark-bg:     #0c0c0c;   /* deepest dark wash */
+  --on-dark-bg-2:   #1d1916;   /* lifted dark wash (gradient top) */
+}
+
+:root[data-theme="dark"] {
+  --bg:          #201d1c;
+  --bg-2:        #0c0c0c;
+  --bg-3:        #15120f;
+  --panel:       #26221f;
+
+  --text:        #f8f5f4;
+  --muted:       #c1bab6;
+  --faint:       #7a6d5d;
+
+  --accent:      #d2c7b5;
+  --accent-deep: #a8967c;
+  --navy:        #1f2a3a;
+
+  --line:        rgba(248, 245, 244, 0.12);
+  --line-2:      rgba(248, 245, 244, 0.08);
+}
+
+:root[data-theme="light"] {
+  --bg:          #f8f5f4;
+  --bg-2:        #ece6df;
+  --bg-3:        #ffffff;
+  --panel:       #ffffff;
+
+  --text:        #201d1c;
+  --muted:       #5e5146;
+  --faint:       #a8967c;
+
+  --accent:      #5e5146;
+  --accent-deep: #3a281e;
+  --navy:        #1f2a3a;
+
+  --line:        rgba(32, 29, 28, 0.14);
+  --line-2:      rgba(32, 29, 28, 0.07);
+}

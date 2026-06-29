@@ -1,0 +1,47 @@
+/* ---- Contact details block ---- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 120px 0 40px;
+}
+
+.contact-grid .ci h4 {
+  margin-bottom: 12px;
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.contact-grid .ci p,
+.contact-grid .ci a {
+  display: block;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.contact-grid .ci a:hover { color: var(--accent); }
+
+/* Long tokens (email) must be able to wrap, never force overflow */
+.contact-grid .ci a,
+.contact-grid .ci p { overflow-wrap: anywhere; }
+
+/* Icon sits inline to the left of each contact item (matches footer style) */
+.contact-grid .ci {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.contact-grid .ci-icon {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  color: var(--accent);
+}
+.contact-grid .ci-body { min-width: 0; }
+.contact-grid .ci-body h4 { margin-bottom: 6px; }
+

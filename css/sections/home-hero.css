@@ -1,0 +1,117 @@
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 760px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--on-dark);
+}
+
+/* Hero background = the ARCTEX brand wordmark on a dark radial wash */
+.hero .bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: radial-gradient(120% 100% at 50% 30%, var(--on-dark-bg-2) 0%, var(--on-dark-bg) 74%);
+}
+
+.hero .bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../../images/logo-white.png') center 31% / min(900px, 80%) no-repeat;
+  opacity: 0.98;
+}
+
+.hero .bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(56% 40% at 50% 31%, rgba(210, 199, 181, 0.13), transparent 60%);
+}
+
+:root[data-theme="light"] .hero .bg {
+  background: radial-gradient(120% 100% at 50% 30%, #221e1b 0%, var(--on-dark-bg) 74%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(12, 12, 12, 0.34) 0%,
+    rgba(12, 12, 12, 0.06) 46%,
+    rgba(12, 12, 12, 0.92) 100%);
+}
+
+.hero-in {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 48px 90px;
+  text-align: center;
+}
+
+/* The logo is the visual title; keep an <h1> for SEO/screen-readers but hide it */
+.hero h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+}
+
+.hero .eyebrow {
+  display: inline-block;
+  color: var(--on-dark-accent);
+  margin: 0 0 64px;
+  font-size: 15px;
+  letter-spacing: 0.46em;
+}
+
+html[lang="ar"] .hero .eyebrow {
+  font-size: 19px;
+  letter-spacing: 0.1em;
+}
+
+.hero p {
+  max-width: 540px;
+  margin: 0 auto 36px;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.hero-actions .btn:not(.solid) { color: var(--on-dark); }
+
+.scrollcue {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: var(--on-dark);
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  opacity: 0.7;
+  writing-mode: vertical-rl;
+}
+

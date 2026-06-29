@@ -1,0 +1,50 @@
+/* ---- Services ---- */
+.svc { padding: 140px 0; }
+
+.svc-head {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.svc-head h2 {
+  margin-top: 22px;
+  font-size: clamp(32px, 4.4vw, 58px);
+  font-weight: 400;
+}
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+.svc-grid .s {
+  padding: 46px 36px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: 0.3s;
+}
+
+.svc-grid .s:nth-child(3n) { border-right: none; }
+.svc-grid .s:hover { background: var(--bg-2); }
+
+.svc-grid .s .si {
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.svc-grid .s h3 {
+  margin: 16px 0 12px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.svc-grid .s p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--muted);
+}
+

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO + social-share meta (title / description / Open Graph / Twitter) -->
+  <title>Services — ARCTEX Design Solutions</title>
+  <meta name="description" content="ARCTEX services: architectural design, construction, 3D visualisation, smart integration, turnkey delivery and renovation.">
+  <meta property="og:title" content="Services — ARCTEX Design Solutions">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARCTEX Design Solutions">
+  <meta property="og:description" content="ARCTEX services: architectural design, construction, 3D visualisation, smart integration, turnkey delivery and renovation.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services — ARCTEX Design Solutions">
+  <meta name="twitter:description" content="ARCTEX services: architectural design, construction, 3D visualisation, smart integration, turnkey delivery and renovation.">
+  <meta name="twitter:image" content="images/og-image.jpg">
+
+  <!-- Favicons / app icons -->
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#201d1c">
+
+  <!-- Restore saved theme + language before paint to avoid flashes (FOUC). Must stay inline. -->
+  <script>
+    (function () {
+      /* 1) saved choice wins; 2) else follow the OS light/dark setting; 3) else dark */
+      var theme = localStorage.getItem('arctex-theme');
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+      var lang = localStorage.getItem('arctex-lang');
+      if (lang === 'ar' || lang === 'en') {
+        document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Expanded:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cairo:wght@300;400;600;700&family=Amiri:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css?v=20260614d">
+  <link rel="stylesheet" href="css/base.css?v=20260613f">
+  <link rel="stylesheet" href="css/sections.css?v=20260625d">
+</head>
+<body>
+  <!-- Reading-progress bar (fills as the page scrolls) -->
+  <div id="scrollbar" class="progress-bar"></div>
+
+  <!-- ===== Top navigation bar: logo | page links | theme + language toggles | mobile burger ===== -->
+  <nav id="nav" class="nav">
+    <a class="brand" href="homepage.html">
+      <img class="logo-light" src="images/logo-white.png" alt="ARCTEX Design Solutions">
+      <img class="logo-dark" src="images/logo-dark.png" alt="ARCTEX Design Solutions">
+    </a>
+
+    <div class="nav-links">
+      <a href="homepage.html"><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span></a>
+      <a href="projectspage.html"><span class="lang-en">Projects</span><span class="lang-ar">المشاريع</span></a>
+      <a href="firmpage.html"><span class="lang-en">Firm</span><span class="lang-ar">الشركة</span></a>
+      <a href="servicespage.html" class="active"><span class="lang-en">Services</span><span class="lang-ar">الخدمات</span></a>
+      <a href="contactpage.html"><span class="lang-en">Contact</span><span class="lang-ar">تواصل</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="tgl" aria-label="Toggle light/dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="lang-toggle" id="lang" aria-label="Switch language / تبديل اللغة">
+        <span class="lang-en">ع</span><span class="lang-ar">EN</span>
+      </button>
+      <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile slide-in navigation drawer (sibling of nav — never nested in a blur layer) -->
+  <div id="navBackdrop" class="nav-backdrop"></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <nav class="drawer-links">
+      <a href="homepage.html"><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span></a>
+      <a href="projectspage.html"><span class="lang-en">Projects</span><span class="lang-ar">المشاريع</span></a>
+      <a href="firmpage.html"><span class="lang-en">Firm</span><span class="lang-ar">الشركة</span></a>
+      <a href="servicespage.html" class="active"><span class="lang-en">Services</span><span class="lang-ar">الخدمات</span></a>
+      <a href="contactpage.html"><span class="lang-en">Contact</span><span class="lang-ar">تواصل</span></a>
+    </nav>
+  </aside>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="page-hero-in reveal">
+        <span class="eyebrow"><span class="lang-en">What we deliver</span><span class="lang-ar">ماذا نقدّم</span></span>
+        <h1><span class="lang-en">Our services.</span><span class="lang-ar">خدماتنا.</span></h1>
+        <p><span class="lang-en">One firm, from the first drawing to the final set of keys.</span><span class="lang-ar">شركةٌ واحدة، من أول رسمٍ إلى آخر مفتاح.</span></p>
+      </div>
+    </section>
+
+    <!-- Services grid -->
+    <section class="svc wrap">
+      <div class="svc-grid reveal">
+        <div class="s"><div class="si">01</div><h3><span class="lang-en">Architectural Design</span><span class="lang-ar">التصميم المعماري</span></h3><p><span class="lang-en">Concept, engineering and documentation — every line drawn to be built.</span><span class="lang-ar">تصوّرٌ وهندسةٌ وتوثيق — كل خطٍّ يُرسم ليُبنى.</span></p></div>
+        <div class="s"><div class="si">02</div><h3><span class="lang-en">Construction</span><span class="lang-ar">الإنشاء</span></h3><p><span class="lang-en">Premium-quality builds delivered with advanced methods and unmatched speed.</span><span class="lang-ar">إنشاءٌ بجودةٍ عالية بأساليبَ متقدّمة وسرعةٍ لا تُضاهى.</span></p></div>
+        <div class="s"><div class="si">03</div><h3><span class="lang-en">3D Visualisation</span><span class="lang-ar">التصوّر ثلاثي الأبعاد</span></h3><p><span class="lang-en">Photoreal walk-throughs so you see the finished space before we break ground.</span><span class="lang-ar">جولاتٌ واقعية لترى المساحة كاملةً قبل أن نبدأ الحفر.</span></p></div>
+        <div class="s"><div class="si">04</div><h3><span class="lang-en">Smart Integration</span><span class="lang-ar">الدمج الذكي</span></h3><p><span class="lang-en">Lighting, climate and security engineered into the structure from day one.</span><span class="lang-ar">إضاءةٌ وتكييفٌ وأمنٌ مهندَسة داخل الهيكل من اليوم الأول.</span></p></div>
+        <div class="s"><div class="si">05</div><h3><span class="lang-en">Turnkey Delivery</span><span class="lang-ar">التسليم الجاهز</span></h3><p><span class="lang-en">A single accountable team from foundation to final handover.</span><span class="lang-ar">فريقٌ واحدٌ مسؤول من الأساس حتى التسليم النهائي.</span></p></div>
+        <div class="s"><div class="si">06</div><h3><span class="lang-en">Renovation</span><span class="lang-ar">التجديد</span></h3><p><span class="lang-en">Precision reworking of existing spaces, managed end to end.</span><span class="lang-ar">إعادةُ تشكيلٍ دقيقة للمساحات القائمة، تُدار من البداية إلى النهاية.</span></p></div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta">
+      <div class="bg"></div>
+      <div class="cta-in reveal">
+        <span class="eyebrow"><span class="lang-en">Let's begin</span><span class="lang-ar">لنبدأ</span></span>
+        <h2><span class="lang-en">Built reality, on time.</span><span class="lang-ar">واقعٌ مبني، في وقته.</span></h2>
+        <a href="contactpage.html" class="btn"><span class="lang-en">Start a project &rarr;</span><span class="lang-ar">ابدأ مشروعك &rarr;</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Site footer: brand blurb | Firm links | Contact details | social | copyright ===== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="brand">
+            <img class="logo-light" src="images/logo-white.png" alt="ARCTEX Design Solutions">
+            <img class="logo-dark" src="images/logo-dark.png" alt="ARCTEX Design Solutions">
+          </div>
+          <p class="footer-about"><span class="lang-en">Turning ideas into built reality — every line intentional, every detail engineered, every project executed with efficiency and excellence.</span><span class="lang-ar">نحوّل الأفكار إلى واقعٍ مبني — كل خطٍّ مقصود، وكل تفصيلٍ مهندَس، وكل مشروعٍ يُنفَّذ بكفاءةٍ وتميّز.</span></p>
+        </div>
+
+        <div class="col">
+          <h4><span class="lang-en">Firm</span><span class="lang-ar">الشركة</span></h4>
+          <a href="projectspage.html"><span class="lang-en">Projects</span><span class="lang-ar">المشاريع</span></a>
+          <a href="firmpage.html"><span class="lang-en">About</span><span class="lang-ar">عن الشركة</span></a>
+          <a href="servicespage.html"><span class="lang-en">Services</span><span class="lang-ar">الخدمات</span></a>
+        </div>
+
+        <div class="col">
+          <h4><span class="lang-en">Contact</span><span class="lang-ar">تواصل</span></h4>
+          <a href="mailto:Info@Arctex.co" class="fic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg><span>Info@Arctex.co</span></a>
+          <a href="tel:+96594707575" class="fic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4.5-2 1.4a12 12 0 0 0 5.1 5.1l1.4-2 4.5 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"/></svg><span dir="ltr">+96594707575</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Al-Sour+New+Tower%2C+Al-Sour+Street%2C+Kuwait+City" target="_blank" rel="noopener" class="fic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s6.5-5.3 6.5-10.5a6.5 6.5 0 0 0-13 0C5.5 15.7 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></svg><span class="lang-en">Kuwait City</span><span class="lang-ar">مدينة الكويت</span></a>
+        </div>
+
+        <div class="col">
+          <h4><span class="lang-en">Follow</span><span class="lang-ar">تابعنا</span></h4>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Behance</a>
+        </div>
+      </div>
+      <div class="bot"><span class="copy lang-en" dir="ltr">&copy; 2026 ARCTEX DESIGN SOLUTIONS — ALL RIGHTS RESERVED.</span><span class="copy lang-ar">&copy; 2026 ARCTEX Design Solutions — جميع الحقوق محفوظة.</span><span class="sig" dir="ltr">Triple M</span></div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js?v=20260625c"></script>
+</body>
+</html>

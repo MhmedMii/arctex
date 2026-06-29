@@ -1,0 +1,39 @@
+/* ---- Arabic / RTL refinements ---- */
+/* Latin tracking & uppercasing don't suit Arabic — reset them */
+html[lang="ar"] .btn,
+html[lang="ar"] .nav-links,
+html[lang="ar"] .eyebrow,
+html[lang="ar"] .num,
+html[lang="ar"] .meta,
+html[lang="ar"] .meta b,
+html[lang="ar"] .svc-grid .s .si,
+html[lang="ar"] .stat span,
+html[lang="ar"] .footer .col h4,
+html[lang="ar"] .footer .bot,
+html[lang="ar"] .scrollcue {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Slightly more leading for Arabic headings */
+html[lang="ar"] h1,
+html[lang="ar"] h2 {
+  line-height: 1.25;
+}
+
+/* The vertical "SCROLL" cue is Latin-only; hide it in Arabic */
+html[lang="ar"] .scrollcue { display: none; }
+
+/* Arabic glyphs read visually smaller than Latin at the same px — scale Arabic type up */
+html[lang="ar"] body { font-size: 17px; }
+html[lang="ar"] p { font-size: 1.06em; }
+html[lang="ar"] .eyebrow { font-size: 13px; letter-spacing: 0.08em; }
+html[lang="ar"] .btn { font-size: 14px; }
+html[lang="ar"] .hero p { font-size: 23px; }
+html[lang="ar"] .page-hero p { font-size: 19px; }
+html[lang="ar"] .nav-links a { font-size: 16px; }
+html[lang="ar"] .footer .col h4 { font-size: 14px; }
+html[lang="ar"] .footer .col a,
+html[lang="ar"] .footer .col p,
+html[lang="ar"] .footer-about { font-size: 16px; }
+html[lang="ar"] .stat span { font-size: 15px; }

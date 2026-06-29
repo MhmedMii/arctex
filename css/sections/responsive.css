@@ -1,0 +1,62 @@
+/* ---- Responsive (tablet & phone) ---- */
+@media (max-width: 900px) {
+  .wrap,
+  .nav,
+  .hero-in {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .nav-links { display: none; }
+
+  /* Replace the inline links with the hamburger → drawer on phone/tablet */
+  .nav-burger { display: flex; }
+
+  .proj {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 46px 0;
+  }
+
+  /* Keep image above text on every row when stacked */
+  .proj:nth-child(even) .pimg { order: 0; }
+
+  /* Diptych (Bathroom): both shots side by side, a touch taller on phone */
+  .proj .pimg.duo { aspect-ratio: 1085 / 640; gap: 10px; }
+
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-grid .s { border-right: none; }
+
+  /* Recent projects: stack — showcase image on top, list beneath it
+     (keeps the 3:2 landscape ratio from recent.css so wide photos fit) */
+  .recent-grid { grid-template-columns: 1fr; gap: 26px; }
+  .recent-media { order: -1; }
+  .recent-item { gap: 18px; padding: 22px 2px; }
+}
+
+@media (max-width: 600px) {
+  /* Contact details stack on phones (3 columns overflow below ~600px) */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 90px;
+  }
+
+  /* Hero eyebrow: keep it bigger than stock, but tighten tracking + drop the
+     64px gap so the enlarged line clears the centred logo wordmark on phones */
+  .hero .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    margin-bottom: 24px;
+  }
+
+  html[lang="ar"] .hero .eyebrow {
+    font-size: 17px;
+    letter-spacing: 0.06em;
+  }
+
+  /* Recent projects: drop the category under the title so nothing is squeezed */
+  .recent-item { grid-template-columns: auto 1fr; row-gap: 6px; }
+  .recent-item .r-cat { grid-column: 2; }
+}
+

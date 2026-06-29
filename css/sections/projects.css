@@ -1,0 +1,167 @@
+/* ---- Showcase / projects ---- */
+.show { padding: 30px 0 60px; }
+
+.proj {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  padding: 70px 0;
+}
+
+/* Alternate image/text sides on even rows (via grid order, not `direction`,
+   so it stays correct in both LTR and RTL) */
+.proj:nth-child(even) .pimg { order: 2; }
+
+.proj .pimg {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.proj.tall .pimg { aspect-ratio: 3 / 4; }
+
+/* Wide showcase: single column, image spans full width at its native ratio
+   so the whole panoramic photo is visible (no portrait crop). Text sits below. */
+.proj.wide { grid-template-columns: 1fr; gap: 34px; }
+/* Image always on top, even on even rows (the alternating order:2 rule would
+   otherwise drop it below the text in this single-column layout). */
+.proj.wide .pimg { aspect-ratio: 1210 / 607; order: -1; }
+
+/* Hybrid alignment for the full-width (image-on-top) rows: the eyebrow + title
+   are centred to act as a formal anchor under the photo, while the body copy
+   stays left-set (logical `start`, so it flips correctly in RTL) for easy
+   reading. The paragraph block is itself centred so its left edge sits on the
+   page's optical centre. Meta and the CTA centre with the header. */
+.proj.wide > div:last-child { text-align: center; }
+.proj.wide p {
+  text-align: start;
+  margin-inline: auto;
+  max-width: 560px;
+}
+.proj.wide .meta { justify-content: center; }
+
+/* Multi-image gallery: any project with more than one photo shows them in a
+   horizontal scroll/swipe strip. Every slide shares ONE uniform height and each
+   photo is shown in FULL at its native ratio (no crop), whatever its
+   orientation — so wide and portrait shots can mix. scroll-snap settles each
+   slide as you swipe; a slim accent scrollbar is the desktop affordance. */
+.proj .pimg.scroll {
+  display: flex;
+  gap: 14px;
+  /* centre the strip when the photos all fit; `safe` falls back to start when
+     they overflow so the first slide stays reachable to scroll */
+  justify-content: safe center;
+  aspect-ratio: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--line-2);
+}
+.proj .pimg.scroll figure {
+  margin: 0;
+  flex: 0 0 auto;
+  height: clamp(220px, 30vw, 380px);
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+.proj .pimg.scroll img {
+  width: auto;
+  height: 100%;
+  display: block;
+}
+.proj .pimg.scroll::-webkit-scrollbar { height: 6px; }
+.proj .pimg.scroll::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+.proj .pimg.scroll::-webkit-scrollbar-track { background: var(--line-2); }
+
+/* Full-bleed swipe variant: one photo per view at FULL width (no shrink), swipe
+   to the next. Used where a project's photos share a wide ratio (e.g. Bayan). */
+.proj .pimg.scroll.full figure { flex: 0 0 100%; height: auto; }
+.proj .pimg.scroll.full img { width: 100%; height: auto; }
+
+/* Two-image pair shown side by side at full native size (used by the Bathroom).
+   Flex-grow set to each crop's native width so, sharing one source height, they
+   render the same height. */
+.proj .pimg.duo {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  aspect-ratio: auto;
+  overflow: visible;
+}
+.proj .pimg.duo figure {
+  position: relative;
+  margin: 0;
+  flex: 640 1 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.proj .pimg.duo figure:last-child { flex: 431 1 0; }
+.proj .pimg.duo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* Seat the bright marble shot into the dark theme so its edges fade in. */
+.proj .pimg.duo figure::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 55px 8px rgba(17, 16, 15, 0.62);
+  pointer-events: none;
+}
+:root[data-theme="light"] .proj .pimg.duo figure::after,
+html.light .proj .pimg.duo figure::after { box-shadow: none; }
+
+.proj img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proj .num {
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.proj h3 {
+  margin: 14px 0 18px;
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 500;
+}
+
+.proj p {
+  max-width: 430px;
+  margin-bottom: 26px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.proj .meta {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  font-family: 'Saira Expanded', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.proj .meta b {
+  display: block;
+  margin-top: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text);
+}
+
