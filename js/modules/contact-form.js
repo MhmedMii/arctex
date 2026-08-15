@@ -6,7 +6,7 @@
 
 const root = document.documentElement;
 
-/* currentLang — read the active language off <html lang> (defaults to 'en'). */
+/* currentLang — يقرا اللغة الجهاز و اذا ماقدر الافتراضي انجليزي */
 function currentLang() {
   return root.getAttribute('lang') === 'ar' ? 'ar' : 'en';
 }
@@ -22,13 +22,16 @@ function localiseForm(form, lang) {
   });
 }
 
-/* initForm — wire localisation + submit on the enquiry form.
-   No-op on pages without the form. */
+/* initForm — بالتعريب نستخدم AJAX
+   تعريب اولي من 'localechange'
+   نرسل عن طريق honeypot
+   و الحماية تطبق من Google Sheets
+   اذا مافي نموذج استفسار مايصير شي بال#enquiryForm */
 export function initForm() {
   const form = document.getElementById('enquiryForm');
   if (!form) return;
 
-  /* Localise once now, then re-localise whenever language-toggle.js fires its event. */
+/* localiseForm — يطابق اللغة بالفورم و الكتابة */
   localiseForm(form, currentLang());
   document.addEventListener('localechange', function (e) {
     localiseForm(form, e.detail.lang);
@@ -168,3 +171,5 @@ export function initForm() {
       });
   });
 }
+
+/* Done by Mohammed.Moh.M (Triple M) */

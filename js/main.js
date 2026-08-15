@@ -30,10 +30,13 @@ import { initProgress } from './modules/top-progress-bar.js';
 import { initRecent }   from './modules/recent-projects.js?v=20260614e';
 import { initForm }     from './modules/contact-form.js?v=20260624c';
 
-/* Boot every feature. Order is intentional: theme + locale first so the
+/* 
+   Boot every feature. Order is intentional: theme + locale first so the
    page is in the right state before the rest bind their listeners. Each
    init is a no-op when its element isn't on the current page, so the same
-   bundle runs safely on all pages. */
+   bundle runs safely on all pages. 
+*/
+
 initTheme();
 initLocale();
 initNav();
