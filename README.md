@@ -1,12 +1,14 @@
-# ARCTEX — Design Solutions
+# ARCTEX — Design Solutions | Demo Version
 
 **Bilingual Architecture & Design Website | Freelance Web Development Project**
 
-A responsive business and portfolio website developed for **ARCTEX Design Solutions**, an architecture, interior design, and design-build firm based in Kuwait.
+A portfolio demonstration of a responsive, bilingual website developed for **ARCTEX Design Solutions**, an architecture, interior design, and design-build firm based in Kuwait.
 
-The website brings together the firm's architectural projects, design services, company profile, and client enquiries in a bilingual English/Arabic experience.
+The demo showcases the website's design, architectural project portfolio, services, Arabic/English language support, and interactive features.
 
-**[🌐 Visit Live Website](https://arctex-indol.vercel.app/)** · **[💻 View Source Code](https://github.com/MhmedMii/arctex)**
+**[🌐 View Live Demo](https://arctex-indol.vercel.app/)** · **[💻 View Source Code](https://github.com/MhmedMii/arctex)**
+
+> **Demo Version:** This public website is presented for portfolio and demonstration purposes. Certain features and external integrations may not represent a fully operational production environment.
 
 **Technologies:** HTML5 · CSS3 · JavaScript ES Modules · Google Apps Script Integration · Vercel
 
