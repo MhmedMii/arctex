@@ -1,40 +1,151 @@
 # ARCTEX — Design Solutions
 
-A freelance portfolio website for ARCTEX Design Solutions, an architecture, interior design, and design-build firm in Kuwait. The site presents the firm's work, services, and company profile, with English and Arabic content and a client enquiry form.
+**Bilingual Architecture & Design Website | Freelance Web Development Project**
 
-**[View the live website](https://arctex-indol.vercel.app/)** · [Source repository](https://github.com/MhmedMii/arctex)
+A responsive business and portfolio website developed for **ARCTEX Design Solutions**, an architecture, interior design, and design-build firm based in Kuwait.
 
-The site is hosted on Vercel. `vercel.json` maps the domain root (`/`) to `homepage.html`, so visitors can open the homepage directly at the live URL. The original `/homepage.html` URL remains available.
+The website brings together the firm's architectural projects, design services, company profile, and client enquiries in a bilingual English/Arabic experience.
 
-## Features
+**[🌐 Visit Live Website](https://arctex-indol.vercel.app/)** · **[💻 View Source Code](https://github.com/MhmedMii/arctex)**
 
-- Five pages: Home, Projects, Firm, Services, and Contact.
-- English and Arabic language switching, including right-to-left layouts and translated form labels.
-- Light and dark themes, with theme and language preferences saved in `localStorage`.
-- Responsive navigation with a mobile menu drawer.
-- Interactive recent-project previews, scroll reveals, and a reading-progress bar.
-- Client enquiry form with browser validation, bilingual status messages, and a honeypot field.
-- Page metadata for search and social sharing, favicons, and a web app manifest.
+**Technologies:** HTML5 · CSS3 · JavaScript ES Modules · Google Apps Script Integration · Vercel
 
-## Technology
+---
 
-The frontend uses **HTML5, CSS, and vanilla JavaScript ES modules**. There is no framework, package manager, or build step. Fonts are loaded from Google Fonts. The enquiry form sends requests to an external Google Apps Script web app intended to record leads in Google Sheets.
+## 📌 Project Overview
 
-## Run locally
+ARCTEX needed a web presence that presents its architectural and interior design work while giving potential clients a straightforward way to explore services and submit enquiries.
 
-Requirements: Git and Python 3, or another static HTTP server.
+The website provides:
 
-```sh
+- A portfolio of architectural and design projects.
+- Dedicated pages for the firm's services, background, and contact information.
+- Arabic and English interfaces with right-to-left support.
+- Responsive layouts for desktop and mobile devices.
+- A client enquiry form connected to an external Google Apps Script endpoint.
+
+The frontend is implemented using HTML, CSS, and vanilla JavaScript modules without a frontend framework or build process.
+
+## 👨‍💻 My Contribution
+
+**Role: Freelance Website Developer**
+
+I developed the website's frontend experience and organized its implementation around reusable styles and JavaScript modules.
+
+The work includes:
+
+- Building the five-page website structure.
+- Implementing responsive page layouts and mobile navigation.
+- Supporting English and Arabic content, including RTL presentation.
+- Implementing light and dark themes with persistent preferences.
+- Developing interactive project previews and scrolling interactions.
+- Implementing the frontend client enquiry form and its external endpoint integration.
+- Preparing the static website for deployment on Vercel.
+
+## ✨ Key Features
+
+### Architecture & Design Portfolio
+
+Five dedicated website pages:
+
+| Page | Purpose |
+|---|---|
+| Home | Introduction and recent-project previews |
+| Projects | Architectural and design portfolio |
+| Firm | Company background, philosophy, and values |
+| Services | Design and construction services |
+| Contact | Contact details and client enquiries |
+
+### Bilingual User Experience
+
+- English and Arabic language switching.
+- Right-to-left layout support for Arabic.
+- Translated form labels and bilingual feedback messages.
+- Language preference stored in `localStorage`.
+
+### Responsive Interface & Themes
+
+- Responsive desktop and mobile layouts.
+- Mobile navigation drawer.
+- Light and dark appearance modes.
+- Theme preference stored in `localStorage`.
+- Interactive recent-project previews.
+- Scroll-reveal effects and a reading-progress bar.
+
+### Client Enquiries
+
+- Client enquiry form with browser-side validation.
+- Bilingual submission status messages.
+- Honeypot field to discourage automated submissions.
+- External Google Apps Script endpoint intended to record enquiries in Google Sheets.
+
+**Integration note:** Because the form uses `no-cors` requests, the browser cannot confirm whether an enquiry has actually been recorded. Delivery must be verified in the receiving spreadsheet.
+
+### Website Metadata
+
+- Search and social-sharing metadata.
+- Favicons.
+- Web app manifest.
+
+---
+
+## 🛠️ Technology & Architecture
+
+| Area | Implementation |
+|---|---|
+| Structure | HTML5 |
+| Styling | CSS3 with shared variables and section stylesheets |
+| Interactions | Vanilla JavaScript ES modules |
+| Bilingual support | English/Arabic content and RTL styles |
+| Preferences | Browser `localStorage` |
+| Enquiry integration | External Google Apps Script endpoint |
+| Hosting | Vercel |
+| Typography | Google Fonts |
+
+The website does not use a frontend framework, package manager, or build step.
+
+### Frontend Organization
+
+The HTML files define the individual pages and their content. CSS variables and shared styles keep the visual design consistent, while section-specific styles manage page layouts and responsive behavior.
+
+JavaScript features are organized into modules for navigation, themes, language switching, project previews, and the contact form. The shared `js/main.js` entry point initializes these behaviors.
+
+The frontend is deployed as a static website. The enquiry form is the main integration with an external service; the receiving Apps Script source is not included in this repository.
+
+---
+
+## ▶️ Run Locally
+
+**Requirements:** Git and Python 3, or another static HTTP server.
+
+Clone the repository:
+
+```bash
 git clone https://github.com/MhmedMii/arctex.git
 cd arctex
+```
+
+Start a local server:
+
+```bash
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open **[http://localhost:8000/homepage.html](http://localhost:8000/homepage.html)**.
+Open:
 
-Serve the files over HTTP so the JavaScript module imports work correctly. No dependency installation or frontend environment variables are required. An internet connection is needed for Google Fonts and the external form endpoint.
+**http://localhost:8000/homepage.html**
 
-## Project structure
+The JavaScript module imports require the website to be served over HTTP.
+
+No dependency installation or frontend environment variables are required.
+
+An internet connection is needed for Google Fonts and the external enquiry endpoint.
+
+**Note:** The local HTTP server does not apply Vercel's root URL rewrite, so open `/homepage.html` locally rather than assuming `/` will show the homepage.
+
+---
+
+## 📁 Project Structure
 
 ```text
 arctex/
@@ -59,36 +170,126 @@ arctex/
 └── README.md
 ```
 
-## Maintain the site
+---
 
-- **Content and translations:** edit the corresponding HTML page. Keep `.lang-en` and `.lang-ar` content in sync; form translations also use `data-*` attributes.
-- **Colors and themes:** update `css/variables.css` and `js/modules/dark-light-theme.js` as needed.
-- **Layout:** edit the relevant file in `css/sections/`. Preserve the import order in `css/sections.css`, since it controls the cascade.
-- **Interactions:** edit the corresponding module in `js/modules/`. `js/main.js` initializes each feature and shares the entry point across pages.
-- **Project imagery:** replace or add files in `images/`, then update image paths, alt text, and recent-project `data-img` attributes in the HTML.
-- **Shared navigation and footer:** these are repeated in each main HTML page; update every copy when changing links or contact details.
-- **Asset caching:** pages and some module imports include version query strings. Update the relevant version when changing an asset that browsers may have cached.
+## 🔧 Maintenance Guide
 
-## Enquiry form
+### Content & Translations
 
-The form is implemented in `js/modules/contact-form.js`. Its `ENDPOINT` constant points to a Google Apps Script web app. It sends a URL-encoded POST containing `name`, `email`, `phone`, `project_type`, and `message`.
+Edit the corresponding HTML page when changing website content.
 
-To connect a different destination, deploy a compatible Apps Script web app and replace `ENDPOINT` with its `/exec` URL. The receiving script should read the fields from `e.parameter`; the Apps Script source is not included in this repository. Set `ENDPOINT` to an empty string to enable demo mode without sending enquiries.
+Keep `.lang-en` and `.lang-ar` content synchronized. Contact form translations also use `data-*` attributes.
 
-Requests use `mode: 'no-cors'`, so the browser cannot read the server response. A frontend success message does not confirm that a spreadsheet row was saved; check the receiving spreadsheet when validating delivery. The deployment check did not submit an enquiry or verify the external backend.
+### Colors & Themes
 
-## Deploy on Vercel
+Shared colors and theme definitions are maintained in:
 
-Publish this repository as a static site, serving the repository root directly. The frontend does not require an install or build command. Keep the HTML, `css/`, `js/`, and `images/` paths together so relative links and imports continue to resolve.
+- `css/variables.css`
+- `js/modules/dark-light-theme.js`
 
-The homepage filename is `homepage.html`. The root rewrite in `vercel.json` serves this page at `/` while keeping the URL unchanged, following [Vercel's rewrite configuration](https://vercel.com/docs/project-configuration/vercel-json#rewrites). This also supports the manifest's `/` start URL. Keep this configuration in the deployed source; a generic local static server does not apply Vercel rewrites, so use `/homepage.html` for the local preview.
+### Layout & Responsive Styles
 
-Push changes to the connected GitHub production branch (`main`) to trigger Vercel's Git deployment. The tracked `README.md` is also displayed on the GitHub repository page.
+Update styles in the relevant file inside `css/sections/`.
 
-After deploying, check the homepage, each navigation link, English/Arabic switching, both themes, mobile navigation, and the enquiry form's validation. Confirm actual form delivery separately in the receiving spreadsheet.
+Preserve the stylesheet import order in `css/sections.css`, because it determines the CSS cascade.
 
-## Credits and licensing
+### JavaScript Interactions
 
-Website development: **Mohammed.Moh.M (Triple M)**. Brand and website content: **ARCTEX Design Solutions**.
+Edit the corresponding module in `js/modules/`.
+
+The `js/main.js` entry point initializes the site's features and provides a shared starting point across pages.
+
+### Images & Project Content
+
+Add or replace project images inside `images/`.
+
+Update the relevant image paths, alternative text, and recent-project `data-img` attributes in the HTML.
+
+### Navigation & Footer
+
+Shared navigation and footer markup is repeated across the five main HTML pages.
+
+When changing navigation links or contact information, update every relevant page.
+
+### Browser Caching
+
+Some HTML pages and JavaScript module imports include version query strings.
+
+Update the relevant version value when changing assets that browsers might otherwise serve from cache.
+
+---
+
+## 📩 Enquiry Form Integration
+
+The contact form is implemented in:
+
+`js/modules/contact-form.js`
+
+Its `ENDPOINT` constant points to an external Google Apps Script web application intended to record enquiries in Google Sheets.
+
+The frontend sends a URL-encoded POST containing:
+
+- `name`
+- `email`
+- `phone`
+- `project_type`
+- `message`
+
+### Connecting Another Endpoint
+
+To use a different destination:
+
+1. Deploy a compatible Google Apps Script web application.
+2. Replace the `ENDPOINT` constant with the new `/exec` URL.
+3. Configure the receiving script to read the submitted values from `e.parameter`.
+4. Verify received enquiries in the destination spreadsheet.
+
+The Google Apps Script source code is not included in this repository.
+
+Set `ENDPOINT` to an empty string to enable demo mode without sending enquiries.
+
+### Important Delivery Limitation
+
+The frontend uses `mode: 'no-cors'` for submission requests.
+
+This means the browser cannot read the response returned by the external service.
+
+A success message in the website does **not** guarantee that an enquiry was saved successfully.
+
+Actual delivery should be confirmed in the receiving Google Sheet.
+
+The deployment check did not submit an enquiry or independently verify the external backend.
+
+---
+
+## 🚀 Deployment on Vercel
+
+The website is published as a static site using Vercel.
+
+There is no dependency installation or build command required for the frontend.
+
+Deploy the repository root directly, keeping its HTML files and `css/`, `js/`, and `images/` directories together so relative paths continue to work.
+
+### Deployment Checklist
+
+After deployment, verify:
+
+- Homepage and all navigation links.
+- Five main website pages.
+- Arabic and English switching.
+- Light and dark modes.
+- Mobile navigation.
+- Client enquiry form validation.
+- Actual enquiry delivery in the receiving spreadsheet.
+
+The frontend form's status message alone is insufficient to confirm successful backend delivery.
+
+---
+
+## 📄 Credits & Licensing
+
+**Website development:** ENG. Mohammed Mahmoud
+
+**Brand and website content:** ARCTEX Design Solutions
 
 No license file is included in this repository.
