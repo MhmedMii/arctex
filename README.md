@@ -290,8 +290,18 @@ The frontend form's status message alone is insufficient to confirm successful b
 
 ## 📄 Credits & Licensing
 
-**Website development:** ENG. Mohammed Mahmoud
-
 **Brand and website content:** ARCTEX Design Solutions
 
 No license file is included in this repository.
+
+---
+
+## 👨‍💻 Author
+
+**ENG. Mohammed Mahmoud**  
+AI & Software Engineer
+
+- **GitHub:** [@MhmedMii](https://github.com/MhmedMii)
+- **Portfolio:** [View Portfolio](https://mohammed-mahmoud-portfolio.vercel.app/)
+
+Built as a portfolio demonstration of freelance web development using HTML5, CSS3, and vanilla JavaScript ES modules, featuring bilingual Arabic/English interfaces, responsive layouts, and modular frontend architecture. The live demo showcases architectural project galleries, interactive navigation, persistent light/dark themes, and a client enquiry form with Google Apps Script integration.
